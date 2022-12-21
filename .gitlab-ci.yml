@@ -1,0 +1,14 @@
+stages:
+  - validate
+  - test
+
+build-code-job:
+  stage: validate
+  image: python:3.10
+  tags:
+    - linux
+  script:
+    - echo "Checking the pre-commit ..."
+    - pip install pre-commit
+    - pre-commit run --all-files
+
